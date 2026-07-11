@@ -43,13 +43,11 @@ curl -fsSL http://localhost:8090/api/version
 
 ### 方式二：官方 Gravitino Playground（完整环境）
 
-如果需要体验 Hive、Trino、Spark、Iceberg REST 等完整能力，可使用官方 playground：
+如果需要体验 Hive、Trino、Spark、Iceberg REST 等完整能力，可在仓库根目录旁克隆官方 playground：
 
 ```bash
-# 方式 A：官方安装脚本
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/apache/gravitino-playground/HEAD/install.sh)"
-
-# 方式 B：git 克隆
+# 克隆到 ../gravitino-playground（与 gravitino-daft/ 同级）
+cd ..
 git clone git@github.com:apache/gravitino-playground.git
 cd gravitino-playground
 ./playground.sh start
