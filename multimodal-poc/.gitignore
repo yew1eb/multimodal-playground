@@ -1,0 +1,13 @@
+# local audio samples — committed via scripts/init_s3.py, not to git
+/data/audio/*.wav
+/data/audio/*.mp3
+/data/audio/*.m4a
+/data/audio/*.flac
+/data/audio/*.ogg
+
+# local image samples — uploaded via scripts/init_s3.py --media image, not to git
+/data/images/*.jpg
+/data/images/*.jpeg
+/data/images/*.png
+/data/images/*.bmp
+/data/images/*.webp
