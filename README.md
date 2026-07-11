@@ -31,3 +31,4 @@ Gravitino + Daft 学习与验证沙盒：
 - [LakeBench](https://github.com/microsoft/LakeBench) — 微软针对数据湖的基准测试，可用于评估多模态/半结构化数据场景。
 - [daft-examples](https://github.com/Eventual-Inc/daft-examples) — Daft 官方示例集，用于学习 Daft 在真实场景下的最佳实践。
 - [querybench](https://github.com/MrPowers/querybench) — 查询引擎对比工具，用于横向比较不同引擎的查询性能。
+- [query-engine-benchmarks](https://github.com/GokulArumugam/query-engine-benchmarks) — 多查询引擎基准测试集，可用于对比 Daft 与其他引擎在不同查询负载下的表现。

@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate small sample files and upload them to the input fileset via GVFS."""
+"""Generate sample files and upload them to the S3-backed input fileset via GVFS.
+
+This demonstrates the "Gravitino metadata + GVFS data plane" path: the actual
+storage is S3/MinIO, but users interact with logical fileset paths such as
+``gvfs://fileset/catalog_s3/demo_s3/input_s3/sample.parquet``.
+"""
 from __future__ import annotations
 
 import json
@@ -13,8 +18,9 @@ sys.path.insert(0, str(__file__).rsplit("/scripts", 1)[0])
 from gravitino_daft.config import (  # noqa: E402
     GRAVITINO_ENDPOINT,
     GRAVITINO_METALAKE,
-    INPUT_FILESET,
-    gvfs_path,
+    S3_INPUT_FILESET,
+    gvfs_options,
+    s3_gvfs_path,
 )
 
 
@@ -41,18 +47,17 @@ def generate_sample_files(data_dir: Path) -> list[Path]:
     return files
 
 
-def upload_to_fileset(local_files: list[Path]) -> None:
-    """Upload local files to the input fileset using Gravitino GVFS Python client."""
+def upload_to_s3_fileset(local_files: list[Path]) -> None:
+    """Upload local files to the S3-backed input fileset using GVFS."""
     from gravitino import gvfs
 
     fs = gvfs.GravitinoVirtualFileSystem(
         server_uri=GRAVITINO_ENDPOINT,
         metalake_name=GRAVITINO_METALAKE,
-        options={"auth_type": "simple"},
+        options=gvfs_options(),
     )
 
-    target_dir = gvfs_path(INPUT_FILESET)
-    # Ensure target directory exists in the virtual file system.
+    target_dir = s3_gvfs_path(S3_INPUT_FILESET)
     if not fs.exists(target_dir):
         fs.mkdir(target_dir)
 
@@ -64,15 +69,17 @@ def upload_to_fileset(local_files: list[Path]) -> None:
         print(f"[ok] uploaded {local_file.name} -> {target_path}")
 
     print(f"[ok] files in {target_dir}:")
-    for name in fs.ls(target_dir):
+    for entry in fs.ls(target_dir):
+        # fsspec/s3fs may return dict or string depending on detail=.
+        name = entry["name"] if isinstance(entry, dict) else entry
         print(f"  - {name}")
 
 
 def main() -> None:
     project_root = Path(__file__).resolve().parent.parent
-    data_dir = project_root / "data"
+    data_dir = project_root / "data" / "s3"
     local_files = generate_sample_files(data_dir)
-    upload_to_fileset(local_files)
+    upload_to_s3_fileset(local_files)
 
 
 if __name__ == "__main__":
