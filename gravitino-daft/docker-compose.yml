@@ -1,0 +1,18 @@
+services:
+  gravitino:
+    image: apache/gravitino:latest
+    container_name: gravitino-daft-server
+    ports:
+      - "8090:8090"
+      - "9001:9001"
+    environment:
+      - GRAVITINO_MEM=-Xms1g -Xmx1g -XX:MaxMetaspaceSize=512m
+    volumes:
+      # Mount a host directory so local fileset backend can persist files
+      # outside the container and be easily inspected.
+      - ./tmp/gravitino-data:/tmp/gravitino
+    healthcheck:
+      test: ["CMD", "curl", "-fsSL", "http://localhost:8090/api/version"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
