@@ -104,8 +104,9 @@ uv run python scripts/bootstrap_gravitino.py
 
 > mock 服务器仅用于验证 bootstrap 脚本的 REST 路径与幂等逻辑，不支持 GVFS 文件读写。
 
-## 文档
+## 文档与参考资料
 
 - [Apache Gravitino Playground](https://github.com/apache/gravitino-playground)
 - [Daft Gravitino Connector](https://docs.daft.ai/en/stable/connectors/gravitino/)
 - [EVALUATION.md](./EVALUATION.md) — 针对 `multimodal-poc` 的接入评估
+- [Metadata as the Control Plane: The Foundation of an… | Junping (JP) Du (Datastrato) | OpenXdata 2026](https://www.youtube.com/watch?v=DDelVhL7l74) — Gravitino 相关演讲
