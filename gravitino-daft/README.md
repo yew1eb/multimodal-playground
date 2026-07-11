@@ -39,6 +39,8 @@ cd gravitino-playground
 ./playground.sh status
 ```
 
+打开 Web UI：http://localhost:8090
+
 > 注意：playground 会占用 8090、9001、13306、15432、18080、18888 等端口，请确保无冲突；
 > 首次启动需要下载多个大体积 Docker 镜像，耗时可能较长。
 
