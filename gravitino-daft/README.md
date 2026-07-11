@@ -110,3 +110,4 @@ uv run python scripts/bootstrap_gravitino.py
 - [Daft Gravitino Connector](https://docs.daft.ai/en/stable/connectors/gravitino/)
 - [EVALUATION.md](./EVALUATION.md) — 针对 `multimodal-poc` 的接入评估
 - [Metadata as the Control Plane: The Foundation of an… | Junping (JP) Du (Datastrato) | OpenXdata 2026](https://www.youtube.com/watch?v=DDelVhL7l74) — Gravitino 相关演讲
+- [Apache Gravitino Playground and Web UI Demo](https://www.youtube.com/watch?v=EjLtHSmbVh4) — Playground 与 Web UI 演示
