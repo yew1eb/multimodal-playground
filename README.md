@@ -22,3 +22,12 @@ Gravitino + Daft 学习与验证沙盒：
 - 为后续 `multimodal-poc` 接入统一数据目录做准备
 
 详见 [`gravitino-daft/README.md`](./gravitino-daft/README.md)。
+
+## TODO / 后续引入
+
+以下项目计划后续引入到本仓库进行实验和对比：
+
+- [polars-benchmark](https://github.com/pola-rs/polars-benchmark) — Polars 官方基准测试集，用于对比 Polars 与 Daft 在不同查询场景下的性能。
+- [LakeBench](https://github.com/microsoft/LakeBench) — 微软针对数据湖的基准测试，可用于评估多模态/半结构化数据场景。
+- [daft-examples](https://github.com/Eventual-Inc/daft-examples) — Daft 官方示例集，用于学习 Daft 在真实场景下的最佳实践。
+- [querybench](https://github.com/MrPowers/querybench) — 查询引擎对比工具，用于横向比较不同引擎的查询性能。
