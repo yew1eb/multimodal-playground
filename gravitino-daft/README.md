@@ -19,29 +19,9 @@ Gravitino + Daft 学习与验证沙盒，用于本地部署 [Apache Gravitino Pl
 
 ## 启动 Gravitino
 
-本项目提供两种本地部署方式：轻量级 standalone 容器（推荐用于快速验证）和官方完整 playground。
+使用官方 Gravitino Playground 进行本地部署：
 
-### 方式一：轻量级 standalone Gravitino（推荐）
-
-仅启动 Gravitino 服务，无 Hive/Trino/Spark 等重量级组件，启动快、占用端口少。
-
-```bash
-docker compose up -d
-```
-
-等待服务 healthy 后验证：
-
-```bash
-# 查看容器状态
-docker compose ps
-
-# 测试 API
-curl -fsSL http://localhost:8090/api/version
-```
-
-打开 Web UI：http://localhost:8090
-
-### 方式二：官方 Gravitino Playground（完整环境）
+### 官方 Gravitino Playground（完整环境）
 
 如果需要体验 Hive、Trino、Spark、Iceberg REST 等完整能力，可在仓库根目录旁克隆官方 playground：
 
