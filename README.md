@@ -32,3 +32,4 @@ Gravitino + Daft 学习与验证沙盒：
 - [daft-examples](https://github.com/Eventual-Inc/daft-examples) — Daft 官方示例集，用于学习 Daft 在真实场景下的最佳实践。
 - [querybench](https://github.com/MrPowers/querybench) — 查询引擎对比工具，用于横向比较不同引擎的查询性能。
 - [query-engine-benchmarks](https://github.com/GokulArumugam/query-engine-benchmarks) — 多查询引擎基准测试集，可用于对比 Daft 与其他引擎在不同查询负载下的表现。
+- [daft-ray-oom-repro](https://github.com/jiangxt2/daft-ray-oom-repro) — Daft on Ray OOM 问题复现案例，用于学习 Daft + Ray 场景下的内存调优与问题排查。
